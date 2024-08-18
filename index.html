@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Signal Platform</h1>
+    </header>
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="bottom-nav">
+            <ul>
+                <li><a href="#" onclick="showTab('viewSignals')">View Signals</a></li>
+                <li><a href="#" onclick="showTab('submitSignal')">Submit Signal</a></li>
+              
+            </ul>
+        </div>
+
+        <!-- View Signals Tab -->
+        <div id="viewSignals" class="tab-content">
+            <button id="filterButton">Filter Signals</button>
+            <div id="signalsFeed"></div>
+        </div>
+
+        <!-- Submit Signal Tab -->
+        <div id="submitSignal" class="tab-content">
+            <form id="signalForm">
+                <label for="signalName">Signal Name:</label>
+                <input type="text" id="signalName" name="signalName" required>
+                
+                <label for="currencyPair">Currency Pair / Asset:</label>
+                <input type="text" id="currencyPair" name="currencyPair" required>
+                
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+                
+                <label for="model">Model:</label>
+                <input type="text" id="model" name="model" required>
+                
+                <label for="riskReward">Risk-to-Reward Ratio:</label>
+                <input type="text" id="riskReward" name="riskReward" required>
+                
+                <label for="tradeTaken">Trade Taken:</label>
+                <input type="text" id="tradeTaken" name="tradeTaken" required>
+                
+                <label for="reasoning">Reasoning:</label>
+                <textarea id="reasoning" name="reasoning" rows="4" required></textarea>
+                
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image">
+                
+                <button type="submit">Submit Signal</button>
+            </form>
+        </div>
+
+        <!-- Update Signal Tab -->
+        <div id="updateSignal" class="tab-content">
+            <form id="updateForm">
+                <label for="signalId">Signal ID:</label>
+                <input type="text" id="signalId" name="signalId" required>
+                
+                <label for="status">Status:</label>
+                <input type="text" id="status" name="status" required>
+                
+                <label for="updateReasoning">Update Reasoning:</label>
+                <textarea id="updateReasoning" name="updateReasoning" rows="4" required></textarea>
+                
+                <button type="submit">Update Signal</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Filter Modal -->
+    <div id="filterModal" class="modal">
+        <div class="modal-content">
+            <span id="modalCloseButton" class="close">&times;</span>
+            <h2>Filter Signals</h2>
+            <form id="filterForm">
+                <label for="filterAuthor">Author:</label>
+                <select id="filterAuthor" name="filterAuthor">
+                    <option value="">All</option>
+                </select>
+
+                <label for="filterModel">Model:</label>
+                <select id="filterModel" name="filterModel">
+                    <option value="">All</option>
+                </select>
+
+                <label for="filterCurrency">Currency Pair / Asset:</label>
+                <select id="filterCurrency" name="filterCurrency">
+                    <option value="">All</option>
+                </select>
+
+                <button type="submit">Apply Filter</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
